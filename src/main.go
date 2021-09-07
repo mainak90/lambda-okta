@@ -61,7 +61,7 @@ func handle(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, 
 		var userid string
 		var groupid string
 		var respB map[string]interface{}
-		json.Unmarshal([]byte(req.Body), respB)
+		json.Unmarshal([]byte(req.Body), &respB)
 		action1:=respB["data"].(map[string]interface{})["data"].(map[string]interface{})["events"].([]interface{})[0].(map[string]interface{})["target"].([]interface{})[0].(map[string]interface{})
 		action2:=respB["data"].(map[string]interface{})["data"].(map[string]interface{})["events"].([]interface{})[0].(map[string]interface{})["target"].([]interface{})[1].(map[string]interface{})
 		if action1["type"] == "User" {
